@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Kenangan - Toko Kopi fattir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- === HALAMAN LOGIN === -->
+    <section id="login-page">
+        <div class="login-box">
+            <h2><i class="fas fa-mug-hot"></i> Kopi Kenangan</h2>
+            <p>Silakan Login untuk Memesan</p>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" placeholder="Masukkan username" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Masukkan password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Masuk</button>
+            </form>
+            
+            <p class="switch-text">
+                Belum punya akun? <a href="#" id="show-signup">Daftar di sini</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- === HALAMAN SIGN UP === -->
+    <section id="signup-page" class="hidden">
+        <div class="login-box">
+            <h2><i class="fas fa-user-plus"></i> Daftar Akun</h2>
+            <p>Daftar untuk memulai pesan kopi</p>
+            <form id="signupForm">
+                <div class="input-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" placeholder="Buat username" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Buat password" required>
+                </div>
+                <div class="input-group">
+                    <label for="signup-nama">Nama Lengkap</label>
+                    <input type="text" id="signup-nama" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Daftar Sekarang</button>
+            </form>
+            
+            <p class="switch-text">
+                Sudah punya akun? <a href="#" id="show-login">Login di sini</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- === HALAMAN UTAMA TOKO === -->
+    <div id="shop-page" class="hidden">
+        <header>
+            <nav>
+                <div class="logo">Kopi Kenangan</div>
+                <ul class="nav-links">
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#">Tentang</a></li>
+                </ul>
+                <div class="user-info">
+                    <span id="user-display">Halo, User</span>
+                    <a href="#" id="logout-btn" class="btn btn-outline">Logout</a>
+                </div>
+                <div class="cart-icon" onclick="alert('Keranjang belanja kosong!')">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </div>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Nikmatnya Kopi Pilihan</h1>
+                <p>Biji kopi terbaik dari petani lokal, disangrai dengan sempurna.</p>
+                <br>
+                <a href="#menu" class="btn btn-primary">Pesan Sekarang</a>
+            </div>
+        </section>
+
+        <section id="menu" class="menu-container">
+            <h2 class="section-title">Menu Favorit Kami</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Latte" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Coffee Latte</h3>
+                        <p>Perpaduan espresso dengan susu steamed yang lembut.</p>
+                        <span class="price">Rp 25.000</span>
+                        <button class="btn btn-primary" onclick="addToCart()">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Americano" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Americano</h3>
+                        <p>Espresso dengan tambahan air panas, rasa kuat.</p>
+                        <span class="price">Rp 20.000</span>
+                        <button class="btn btn-primary" onclick="addToCart()">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Espresso" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Espresso</h3>
+                        <p>Kopi murni dengan tekanan tinggi, rasa bold.</p>
+                        <span class="price">Rp 18.000</span>
+                        <button class="btn btn-primary" onclick="addToCart()">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Cold Brew" class="menu-img">
+                    <div class="menu-info">
+                        <h3>Cold Brew</h3>
+                        <p>Kopi seduh dingin selama 12 jam, asam rendah.</p>
+                        <span class="price">Rp 28.000</span>
+                        <button class="btn btn-primary" onclick="addToCart()">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Kopi Kenangan. All Rights Reserved. 
+                M Fattir Rasya A </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
